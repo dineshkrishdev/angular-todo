@@ -1,0 +1,14 @@
+<div class="form-group">
+  <input type="text" id="task_name" class="form-control" [(ngModel)]="name" aria-describedby="help" placeholder="Enter Task Name" (keyup.enter)="addTask()">
+  <small id="help" class="form-text text-muted">Enter the Task Name & hit Enter!!!</small>
+</div>
+
+<div>
+  <ul *ngFor="let task of task_list" class="list-group list-group-flush">
+    <li class="list-group-item list-group-item-info">
+      <input type="checkbox" (click)="changeStatus(task.id)"/>&nbsp;
+      <span [ngClass]="(task.status)?'doStrik':''">{{task.name}}</span>
+      <span (click)="removeTask(task.id)" class="close">x</span>
+    </li>
+  </ul>
+</div>
